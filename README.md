@@ -1,38 +1,35 @@
-# sv
+# Networking App
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## 🛠 Tech Stack Overview
 
-## Creating a project
+This project is a lightweight **Progressive Web App (PWA)** built with a focus on speed, accessibility, and local-first data storage. It uses modern frontend tools and libraries to deliver a mobile-friendly experience without requiring a backend.
 
-If you're seeing this, you've probably already done this step. Congrats!
+### 🧩 Core Technologies
 
-```sh
-# create a new project in the current directory
-npx sv create
+- **[Svelte](https://svelte.dev/)**  
+  A reactive UI framework that compiles to highly optimized JavaScript, ideal for fast and maintainable frontend applications.
 
-# create a new project in my-app
-npx sv create my-app
-```
+- **[Vite](https://vitejs.dev/)**  
+  A lightning-fast build tool and development server, used as the foundation for bundling and running the app.
 
-## Developing
+- **[vite-plugin-pwa](https://vite-pwa-org.netlify.app/)**  
+  Handles service worker registration and `manifest.json` generation to make the app installable and work offline as a true PWA.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### 💾 Local Storage
 
-```sh
-npm run dev
+- **[Dexie.js](https://dexie.org/)**  
+  A powerful wrapper around IndexedDB for structured local data storage with an easy-to-use Promise-based API.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### 🎨 UI Framework
 
-## Building
+- **[Skeleton UI](https://www.skeleton.dev/)**  
+  A lightweight, mobile-first UI toolkit built on Tailwind CSS and optimized for Svelte, with accessible components and modern design.
 
-To create a production version of your app:
+### 🧪 Testing
 
-```sh
-npm run build
-```
+- **[Vitest](https://vitest.dev/)**  
+  A blazing-fast unit testing framework integrated with Vite, allowing you to write and run component and utility tests seamlessly.
 
-You can preview the production build with `npm run preview`.
+---
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+This setup is designed to be **offline-first**, **fully client-side**, and **ready for mobile installation** from day one.
