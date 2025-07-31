@@ -1,15 +1,34 @@
 <script lang="ts">
-	import { ROUTES, getNetworkerRoute } from '$lib/routes';
+	import { ROUTES } from '$lib/routes';
 	import '../app.css';
+	import { Navigation } from '@skeletonlabs/skeleton-svelte';
+	import { page } from '$app/state';
 
 	let { children } = $props();
+
+	const currentRoute = $derived(page.url.pathname);
+
+	const activeValue = $derived(
+		currentRoute === ROUTES.HOME
+			? 'home'
+			: currentRoute === ROUTES.NEW_NETWORKER
+				? 'new'
+				: currentRoute === ROUTES.PROFILE
+					? 'profile'
+					: 'home'
+	);
 </script>
 
-<nav>
-	<a href={ROUTES.HOME}>My Networkers</a>
-	<a href={ROUTES.NEW_NETWORKER}>New Networker</a>
-	<a href={getNetworkerRoute('1')}>Networker Details</a>
-	<a href={ROUTES.PROFILE}>Profile</a>
-</nav>
+<div class="grid min-h-screen grid-rows-[1fr_auto]">
+	<!-- Content -->
+	<div class="flex items-center justify-center p-4">
+		{@render children()}
+	</div>
 
-{@render children()}
+	<!-- Navigation -->
+	<Navigation.Bar value={activeValue}>
+		<Navigation.Tile id="home" label="My Networkers" href={ROUTES.HOME}>📋</Navigation.Tile>
+		<Navigation.Tile id="new" label="New Networker" href={ROUTES.NEW_NETWORKER}>➕</Navigation.Tile>
+		<Navigation.Tile id="profile" label="Profile" href={ROUTES.PROFILE}>⚙️</Navigation.Tile>
+	</Navigation.Bar>
+</div>
