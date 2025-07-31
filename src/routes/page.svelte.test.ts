@@ -1,13 +1,25 @@
-import { page } from '@vitest/browser/context';
-import { describe, expect, it } from 'vitest';
-import { render } from 'vitest-browser-svelte';
+import { describe, expect, it, afterEach } from 'vitest';
+import { render, screen, cleanup } from '@testing-library/svelte';
 import Page from './+page.svelte';
 
 describe('/+page.svelte', () => {
-	it('should render h1', async () => {
+	afterEach(() => {
+		cleanup();
+	});
+
+	it('should render h1 with correct text', () => {
 		render(Page);
-		
-		const heading = page.getByRole('heading', { level: 1 });
-		await expect.element(heading).toBeInTheDocument();
+
+		const heading = screen.getByRole('heading', { level: 1 });
+		expect(heading).toBeDefined();
+		expect(heading.textContent).toBe('My Networkers');
+	});
+
+	it('should render description paragraph', () => {
+		render(Page);
+
+		const descriptions = screen.getAllByText('Manage your professional network contacts');
+		expect(descriptions).toHaveLength(1);
+		expect(descriptions[0].tagName).toBe('P');
 	});
 });
