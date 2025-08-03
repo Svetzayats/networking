@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/svelte';
 import NetworkingListItem from './NetworkingNetworkerListItem.svelte';
 import type { NetworkerDataView } from '$lib/types/networker';
-import '../../app.css';
 
 const meta = {
 	title: 'NetworkingListItem',
