@@ -27,8 +27,29 @@
 
 	<!-- Navigation -->
 	<Navigation.Bar value={activeValue}>
-		<Navigation.Tile id="home" label="My Networkers" href={ROUTES.HOME}>📋</Navigation.Tile>
-		<Navigation.Tile id="new" label="New Networker" href={ROUTES.NEW_NETWORKER}>➕</Navigation.Tile>
-		<Navigation.Tile id="profile" label="Profile" href={ROUTES.PROFILE}>⚙️</Navigation.Tile>
+		<Navigation.Tile
+			id="home"
+			label="My Networkers"
+			href={ROUTES.HOME}
+			background="bg-cyan-100"
+			active="bg-cyan-300"
+			hover="hover:bg-cyan-200">📋</Navigation.Tile
+		>
+		<Navigation.Tile
+			id="new"
+			label="New Networker"
+			href={ROUTES.NEW_NETWORKER}
+			background="bg-cyan-100"
+			active="bg-cyan-300"
+			hover="hover:bg-cyan-200">➕</Navigation.Tile
+		>
+		<Navigation.Tile
+			id="profile"
+			label="Profile"
+			href={ROUTES.PROFILE}
+			background="bg-cyan-100"
+			active="bg-cyan-300"
+			hover="hover:bg-cyan-200">⚙️</Navigation.Tile
+		>
 	</Navigation.Bar>
 </div>
